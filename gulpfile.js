@@ -5,7 +5,9 @@ var gulp = require("gulp"),
     autoprefixer = require("gulp-autoprefixer"),
     imageMin = require("gulp-imagemin"),
     pngquant = require("imagemin-pngquant"),
-    sourcemaps = require("gulp-sourcemaps");
+    sourcemaps = require("gulp-sourcemaps"),
+    header = require("gulp-header");//cssの頭に追加
+
 
 gulp.task("sass", function(){
   gulp.watch("src/sass/*.scss",function(){
@@ -14,6 +16,7 @@ gulp.task("sass", function(){
     .pipe(sass({
       outputStyle:"expended"
     }))
+    .pipe(header('@charset "UTF-8";\n\n'))
     //ベンダープレフィックス
     .pipe(autoprefixer({
       browsers:["firefox >= 2","android >= 4"]
