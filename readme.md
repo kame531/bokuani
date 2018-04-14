@@ -6,4 +6,6 @@
 ## 開発環境
 sass
 gulp
+php
+MAMP
 javascript

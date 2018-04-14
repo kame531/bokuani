@@ -39,7 +39,8 @@ gulp.task('server', function() {
     base:"./src"
   }, function (){
     browserSync({
-      proxy: 'localhost:2001'
+      //MAMP設定のでディレクトリ(起動が必要)
+      proxy: 'localhost:2000'
     });
   });
   gulp.watch("src/**",function(){
