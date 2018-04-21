@@ -12,7 +12,7 @@ var gulp = require("gulp"),
 gulp.task("sass", function(){
   gulp.watch("src/sass/*.scss",function(){
     console.log("sassコンパイル");
-    gulp.src("src/sass/*.scss")
+    gulp.src("src/sass/style.scss")
     .pipe(sass({
       outputStyle:"expended"
     }))

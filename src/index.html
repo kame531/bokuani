@@ -1,3 +1,4 @@
+<?php include ('./inc/connect.php'); ?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -5,239 +6,202 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="日曜お昼開催の原曲中心アニソンクラブイベント。アットホームな雰囲気が特徴です。ぼくアニもついに３周年を迎えました。会場はバナナボンゴ！ぼくたちと一緒に楽しみましょう！">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@uezochan">
+  <meta name="twitter:site" content="@sunax9">
   <meta name="twitter:creator" content="@sunax9">
-  <meta name="twitter:domain" content="twvt.me">
-  <meta property="twitter:title" content="bokuanitest01 - twinvite">
-  <meta property="twitter:description" content="twinviteで詳細をチェック＆参加表明">
+  <meta name="twitter:domain" content="bokuani.club">
+  <meta property="twitter:title" content="bokuani">
+  <meta property="twitter:description" content="池袋で開催のアニソンクラブイベント">
   <meta property="twitter:url" content="http://bokuani.club">
   <meta property="og:image" content="http://bokuani.club/img/logo.png">
   <title>ぼくアニ | 池袋で開催のアニソンクラブイベント</title>
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="apple-touch-icon-precomposed" href="http://bokuani.club/img/webclip.png">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/hold.js" charset="utf-8"></script>
 </head>
 
 <body>
-  <section>
-    <h1>テスト</h1>
+  <!-- header -->
+  <?php include ('./inc/header.php'); ?>
 
-    <p>test</p>
-  </section>
+  <!-- day/entrance -->
+  <div class="container" id="day-ent">
+    <section class="day-ent_wrap">
+      <h2 class="section_title">DAY/ENTRANCE</h2>
 
-  <div class="container">
-    <div class="bokuani_header">
-      <div class="col-md-6">
-        <h1>ぼくアニ3周年(第5話)</h1>
-        <p>日曜お昼開催の原曲中心アニソンクラブイベント。アットホームな雰囲気が特徴です。<br>ぼくアニもついに３周年を迎えました。会場はバナナボンゴ！ぼくたちと一緒に楽しみましょう！</p>
-      </div>
+      <div class="day-ent_box">
+        <div class="day-ent_inner">
+          <div class="day-ent_table" id="day_table"></div>
+          <ul class="day-ent_caution">
+            <li class="day-ent_caution_list">*&nbsp;開催時間中はいつでも入場できます。ただし再入場は不可なのでご注意ください。</li>
+            <li class="day-ent_caution_list">*&nbsp;終了時、速やかに退出できるようご協力お願い致します。着替え等は終了前に済ませておくとスムーズな退出ができます。</li>
+          </ul>
+        </div>
 
-      <div class="container_chara col-md-6">
-        <img src="http://snark.sub.jp/bokuani/img/mascot/bokuani_chara_02.png" alt="ぼくアニキャラクター" class="chara">
-      </div>
-    </div>
-    <!-- <section>
-                <div class="flyer col-md-6">
-                  <img src="http://snark.sub.jp/bokuani/event/bokuani03/img/bokuani3.jpg" alt="ぼくアニフライヤー表">
-                </div>
-              </section> -->
-  </div>
-  <!-------day/entrance-------->
-  <div class="container">
-    <section class="day_wrap">
-      <h2>DAY/ENTRANCE</h2>
-
-      <div class="daybox">
-        <div class="row">
-          <div class="col-sm-6 col-xs-12">
-            <div class="daybox_inner  bc03">
-              <table class="table table-condensed">
-                <tr>
-                  <th class="no_border">日時</th>
-                  <td class="no_border">2018年1月7日(日)</td>
-                </tr>
-                <tr>
-                  <th>START</th>
-                  <td>12:00</td>
-                </tr>
-                <tr>
-                  <th>CLOSE</th>
-                  <td>19:00</td>
-                </tr>
-              </table>
-              <ul>
-                <li>※&nbsp;開催時間中はいつでも入場できます。ただし再入場は不可なのでご注意ください。</li>
-                <li>※&nbsp;終了時、速やかに退出できるようご協力お願い致します。着替え等は終了前に済ませておくとスムーズな退出ができます。</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-sm-6 col-xs-12">
-            <div class="daybox_inner bc03">
-              <table class="table table-condensed">
-                <tr>
-                  <th class="no_border">Door</th>
-                  <td class="no_border">¥2,000</td>
-                </tr>
-                <tr>
-                  <th>twinvite参加表明</th>
-                  <td>¥1,500</td>
-                </tr>
-                <tr>
-                  <th>コスプレ参加</th>
-                  <td>¥1,000</td>
-                </tr>
-              </table>
-              <ul>
-                <li>※&nbsp;Door：当日入場です。</li>
-                <li>※&nbsp;会場には荷物置き場、クローク等荷物の預かり場所はございません。周辺のコインロッカーをご利用下さい。</li>
-              </ul>
-            </div>
-          </div>
+        <div class="day-ent_inner">
+          <div class="day-ent_table" id="ent_table"></div>
+          <ul class="day-ent_caution">
+            <li class="day-ent_caution_list">*&nbsp;Door：当日入場です。</li>
+            <li class="day-ent_caution_list">*&nbsp;会場には荷物置き場、クローク等荷物の預かり場所はございません。周辺のコインロッカーをご利用下さい。</li>
+          </ul>
         </div>
       </div>
     </section>
   </div>
 
-  <div class="container">
-    <section>
-      <h2>SPECIAL</h2>
-      <div class="row">
-        <div class="col-sm-12 col-xs-12">
-          <p>ぼくアニもついに3周年をむかえました。会場はかつて「ぼくたちでもアニクラできますか？」時代からイベントを行なってきた。バナナボンゴでの開催です。<br>ゴールデンウィーク最終日。みんなで盛り上がりましょう！！</p>
-        </div>
+  <!-- special -->
+  <div class="container" id="special">
+    <section class="day-ent_wrap">
+      <h2 class="section_title">SPECIAL</h2>
+      <div class="special_text">
+        <p>ぼくアニもついに3周年をむかえました。会場はかつて「ぼくたちでもアニクラできますか？」時代からイベントを行なってきた。バナナボンゴでの開催です。<br>ゴールデンウィーク最終日。みんなで盛り上がりましょう！！</p>
       </div>
     </section>
   </div>
 
-  <!------about-------->
-  <div class="container">
-    <section class="ba_02 about">
-      <h2>POINT</h2>
-      <div class="row">
-        <div class="col-sm-6 col-xs-12">
-          <img src="http://snark.sub.jp/bokuani/img/mascot/athome.png" alt="持ち込みOK">
-          <p class="abouttitle">持ち込みOK</p>
-          <p class="abouttext">お酒、ツマミ等の持ち込みOKです。カウンターでもドリンクの注文を受けつています。<br>※アルコール度数の高いお酒は持ち込み禁止です。<br>※ゴミの分別にご協力下さい。</p>
+  <!-- about -->
+  <div class="container" id="about">
+    <section class="about_wrap">
+      <h2 class="section_title">ABOUT</h2>
+      <div class="about_box">
+        <div class="about_inner">
+          <img class="about_image" src="http://snark.sub.jp/bokuani/img/mascot/athome.png" alt="持ち込みOK">
+          <p class="about_title">持ち込みOK</p>
+          <p class="about_text">お酒、ツマミ等の持ち込みOKです。カウンターでもドリンクの注文を受けつています。<br>*&nbsp;アルコール度数の高いお酒は持ち込み禁止です。<br>*&nbsp;ゴミの分別にご協力下さい。</p>
         </div>
         <!-- <div class="col-sm-4 col-xs-12">
                     <img src="http://snark.sub.jp/bokuani/img/mascot/cos.png" alt="コスプレ">
-                    <p class="abouttitle">コスプレ</p>
-                    <p class="abouttext">女子更衣室(無料)とクローク（有料）を用意しています。コスプレをしながらパーティを楽しめます。わからないことがあればコスプレスタッフが案内します。</p>
+                    <p class="about_title">コスプレ</p>
+                    <p class="about_text">女子更衣室(無料)とクローク（有料）を用意しています。コスプレをしながらパーティを楽しめます。わからないことがあればコスプレスタッフが案内します。</p>
                   </div> -->
-        <div class="col-sm-6 col-xs-12">
-          <img src="http://snark.sub.jp/bokuani/img/mascot/ohiru.png" alt="お昼開催">
-          <p class="abouttitle">日曜お昼に開催</p>
-          <p class="abouttext">アットホームな雰囲気を大切にしているのでアニクラ初心者も安心して楽しめます。<br>12時から始まり19時に終わる。学生にも社会人にも優しい時間帯！</p>
+        <div class="about_inner">
+          <img class="about_image" src="http://snark.sub.jp/bokuani/img/mascot/ohiru.png" alt="お昼開催">
+          <p class="about_title">日曜お昼に開催</p>
+          <p class="about_text">アットホームな雰囲気を大切にしているのでアニクラ初心者も安心して楽しめます。<br>12時から始まり19時に終わる。学生にも社会人にも優しい時間帯！</p>
         </div>
       </div>
     </section>
   </div>
 
 
-  <!-----------djvjstaff---------->
+  <!-- djvjstaff -->
+
+  <div class="container">
+    <?php foreach($data as $row): ?>
+    <h4><?php echo $row['name'];?></h4>
+    <p><?php echo $row['job'];?></p>
+    <p>(<?php echo $row['credit'];?>)</p>
+    <p><a href="https://twitter.com/<?php echo $row['twitter'];?>" target="_blank"><img src="./img/icon/twitter.png" alt="twitter @<?php echo $row['twitter'];?>"></a></p>
+    <p><img src="./img/crew/crew_<?php echo $row['id'];?>.jpg" alt="<?php echo $row['name'];?>"></p>
+    <p><?php echo $row['vio'];?></p>
+    <?php endforeach; ?>
+  </div>
 
 
-  <section class="guest">
-    <h2>GUEST</h2>
-    <div class="role_plate">
-      <div class="dj_plate col-md-6 col-sm-6 col-xs-6"><i class="fa fa-headphones" aria-hidden="true"></i></div>
-      <div class="vj_plate col-md-6 col-sm-6 col-xs-6"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
-        <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/miku.png" alt="miku"></div>
-        <div class="guest_text">
-          <dl>
-            <dt class="guest_name">miku</dt>
-            <dd class="guest_credit">(秋葉原あるけみすと、両国あるけみっ)</dd>
-            <dd>
-              <div class="guest_sns_icon">
-                <a href="https://twitter.com/mikusetuna" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <!-- <a href="https://soundcloud.com/kopppe_panna2" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a> -->
-              </div>
-            </dd>
-            <dd class="guest_vio">djというよりは、<br> お酒メインで活躍しています←
-              <br> 良い曲と良いdjと良いお酒で
-              <br> みなさん乾杯しましょう！！
-            </dd>
-          </dl>
-        </div>
+  <div class="container">
+    <section class="guest">
+      <h2 class="section_title">GUEST</h2>
+      <div class="role_plate">
+        <div class="dj_plate col-md-6 col-sm-6 col-xs-6"><i class="fa fa-headphones" aria-hidden="true"></i></div>
+        <div class="vj_plate col-md-6 col-sm-6 col-xs-6"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
       </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
+          <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/miku.png" alt="miku"></div>
+          <div class="guest_text">
+            <dl>
+              <dt class="guest_name">miku</dt>
+              <dd class="guest_credit">(秋葉原あるけみすと、両国あるけみっ)</dd>
+              <dd>
+                <div class="guest_sns_icon">
+                  <a href="https://twitter.com/mikusetuna" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <!-- <a href="https://soundcloud.com/kopppe_panna2" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a> -->
+                </div>
+              </dd>
+              <dd class="guest_vio">djというよりは、<br> お酒メインで活躍しています←
+                <br> 良い曲と良いdjと良いお酒で
+                <br> みなさん乾杯しましょう！！
+              </dd>
+            </dl>
+          </div>
+        </div>
 
-      <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
-        <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/machico.png" alt="machico"></div>
-        <div class="guest_text">
-          <dl>
-            <dt class="guest_name">machico</dt>
-            <dd class="guest_credit">(ちゃいりふ/ときめき絶対領域/Roman☆Tik Emotion!/アニNEXT)</dd>
-            <dd>
-              <div class="guest_sns_icon">
-                <a href="https://twitter.com/machi75" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <!-- <a href="https://www.mixcloud.com/NISHIMITSU/" target="_blank"><i class="fa fa-mixcloud" aria-hidden="true"></i></a>
+        <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
+          <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/machico.png" alt="machico"></div>
+          <div class="guest_text">
+            <dl>
+              <dt class="guest_name">machico</dt>
+              <dd class="guest_credit">(ちゃいりふ/ときめき絶対領域/Roman☆Tik Emotion!/アニNEXT)</dd>
+              <dd>
+                <div class="guest_sns_icon">
+                  <a href="https://twitter.com/machi75" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <!-- <a href="https://www.mixcloud.com/NISHIMITSU/" target="_blank"><i class="fa fa-mixcloud" aria-hidden="true"></i></a>
 <a href="https://soundcloud.com/nishimitsu/" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a> -->
-              </div>
-            </dd>
-            <dd class="guest_vio">グッズ制作などを行うイラストレーターでもある傍ら、2012年から渋谷、原宿界隈で細々とDJ活動を開始。その後Free!に人生を狂わされ10年ぶりに腐女子の世界に舞い戻りDJプレイも女子向け選曲が多くなる。2015年頃から本格的にアニソンDJとして活動の幅を広げ2016年には夏の宴、冬の宴に2連続で出演。さらに2017年夏 リアニメーション10にpoyo&machicoのDJユニットで出演を果たす。</dd>
-          </dl>
+                </div>
+              </dd>
+              <dd class="guest_vio">グッズ制作などを行うイラストレーターでもある傍ら、2012年から渋谷、原宿界隈で細々とDJ活動を開始。その後Free!に人生を狂わされ10年ぶりに腐女子の世界に舞い戻りDJプレイも女子向け選曲が多くなる。2015年頃から本格的にアニソンDJとして活動の幅を広げ2016年には夏の宴、冬の宴に2連続で出演。さらに2017年夏 リアニメーション10にpoyo&machicoのDJユニットで出演を果たす。</dd>
+            </dl>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
-        <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/fure.png" style="width: 300.300px; height: 160px;" alt="hurederika"> </div>
-        <div class="guest_text">
-          <dl> <dt class="guest_name">フレデリカ</dt>
-            <dd class="guest_credit">(週末DJ倶楽部)</dd>
-            <dd>
-              <div class="guest_sns_icon"><a href="https://twitter.com/frederica_07" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                <!-- <a href="https://www.mixcloud.com/NISHIMITSU/" target="_blank"><i class="fa fa-mixcloud" aria-hidden="true"></i></a><a href="https://soundcloud.com/nishimitsu/" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a> --></div>
-            </dd>
-            <dd class="guest_vio">2015年からアニクラに通い始め、2016年よりアニソンDJをスタート。<br> 池袋バナナボンゴで第1土曜に開催されているアニソンメインのイベント「週末DJ倶楽部」でDJ活動中。
-              <br> 好きなアニメは「たまゆら」。口癖は「もうお酒やめる」。
-            </dd>
-          </dl>
+        <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
+          <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/fure.png" style="width: 300.300px; height: 160px;" alt="hurederika"> </div>
+          <div class="guest_text">
+            <dl> <dt class="guest_name">フレデリカ</dt>
+              <dd class="guest_credit">(週末DJ倶楽部)</dd>
+              <dd>
+                <div class="guest_sns_icon"><a href="https://twitter.com/frederica_07" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <!-- <a href="https://www.mixcloud.com/NISHIMITSU/" target="_blank"><i class="fa fa-mixcloud" aria-hidden="true"></i></a><a href="https://soundcloud.com/nishimitsu/" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a> --></div>
+              </dd>
+              <dd class="guest_vio">2015年からアニクラに通い始め、2016年よりアニソンDJをスタート。<br> 池袋バナナボンゴで第1土曜に開催されているアニソンメインのイベント「週末DJ倶楽部」でDJ活動中。
+                <br> 好きなアニメは「たまゆら」。口癖は「もうお酒やめる」。
+              </dd>
+            </dl>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
-        <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/icchi.png" alt="いっちー"></div>
-        <div class="guest_text">
-          <dl>
-            <dt class="guest_name guest_name_vj">いっちー</dt>
-            <dd class="guest_credit">(アニLOVEっ!!/アニ鍋/SPLASH!!/えぼりゅ/おーばーさんじゅう！！/俺たちのパーリーがこんなに楽しいわけがない/BARなごみ)</dd>
-            <dd>
-              <div class="guest_sns_icon">
-                <a href="https://twitter.com/maji_itti" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              </div>
-            </dd>
-            <dd class="guest_vio">友人の勧めで2014年10月からアニソンVJ活動を開始！東京ときどき京都な感じで活動中！！VJを通じて作品や曲を知るのが楽しみの1つである。<br>ぼくアニ3周年おめでとうございます！！当日楽しみです！！</dd>
-          </dl>
+        <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
+          <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/icchi.png" alt="いっちー"></div>
+          <div class="guest_text">
+            <dl>
+              <dt class="guest_name guest_name_vj">いっちー</dt>
+              <dd class="guest_credit">(アニLOVEっ!!/アニ鍋/SPLASH!!/えぼりゅ/おーばーさんじゅう！！/俺たちのパーリーがこんなに楽しいわけがない/BARなごみ)</dd>
+              <dd>
+                <div class="guest_sns_icon">
+                  <a href="https://twitter.com/maji_itti" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </div>
+              </dd>
+              <dd class="guest_vio">友人の勧めで2014年10月からアニソンVJ活動を開始！東京ときどき京都な感じで活動中！！VJを通じて作品や曲を知るのが楽しみの1つである。<br>ぼくアニ3周年おめでとうございます！！当日楽しみです！！</dd>
+            </dl>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
-        <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/kaz.png" alt="KaZ"></div>
-        <div class="guest_text">
-          <dl>
-            <dt class="guest_name guest_name_vj">KaZ</dt>
-            <dd class="guest_credit">(Space×Space/茨城アニクラ道/THE ANTHEM)</dd>
-            <dd>
-              <div class="guest_sns_icon">
-                <a href="https://twitter.com/KAZ0825280" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              </div>
-            </dd>
-            <dd class="guest_vio">2014年、八王子GluckにてDJ活動を開始。<br>東京を中心に活動していたが社会人になり茨城県民になる。<br>2016年、DJ活動と共にVJに興味を持ち新人VJとして細々とスタート。</dd>
-          </dl>
+        <div class="col-md-12 col-sm-12 col-xs-12 guest_wrap">
+          <div class="guest_img"><img src="http://snark.sub.jp/bokuani/img/guest/kaz.png" alt="KaZ"></div>
+          <div class="guest_text">
+            <dl>
+              <dt class="guest_name guest_name_vj">KaZ</dt>
+              <dd class="guest_credit">(Space×Space/茨城アニクラ道/THE ANTHEM)</dd>
+              <dd>
+                <div class="guest_sns_icon">
+                  <a href="https://twitter.com/KAZ0825280" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </div>
+              </dd>
+              <dd class="guest_vio">2014年、八王子GluckにてDJ活動を開始。<br>東京を中心に活動していたが社会人になり茨城県民になる。<br>2016年、DJ活動と共にVJに興味を持ち新人VJとして細々とスタート。</dd>
+            </dl>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+
   <div class="container">
 
     <section class="crew">
       <div class="row row-eq-heigh">
-        <h2>CREW</h2>
+        <h2 class="section_title">CREW</h2>
         <div class="role_plate">
           <div class="dj_plate col-md-4 col-sm-4 col-xs-4"><i class="fa fa-headphones" aria-hidden="true"></i></div>
           <div class="vj_plate col-md-4 col-sm-4 col-xs-4"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
@@ -789,7 +753,7 @@
     <section class="ba_02">
       <div class="none" style="text-align: center; margin: 20px 0;"><img style="width:600px;" src="http://snark.sub.jp/bokuani/img/tt/bk_tt_002.jpg" alt="timetable">
       </div>
-      <h2>TIME TABLE</h2>
+      <h2 class="section_title">TIME TABLE</h2>
       <!-- diplay:noneはclass:none -->
       <p class="" style="font-size:20px;padding:20px 0;">Comingsoon...</p>
       <div class="timetable none">
@@ -834,7 +798,7 @@
 
   <div class="container">
     <section class="bc_01 venue_wrap">
-      <h2>PARTY VENUE</h2>
+      <h2 class="section_title">PARTY VENUE</h2>
       <div class="venue row">
         <div class="col-md-12">
           <dl>
@@ -849,7 +813,7 @@
 
   <div class="container">
     <section class="ba_02 attention">
-      <h2>ATTENTION</h2>
+      <h2 class="section_title">ATTENTION</h2>
       <div class="atten row">
         <h3>注意事項</h3>
         <div class="col-md-12">
@@ -868,7 +832,7 @@
     </section>
 
     <section class="bc_03 twitter">
-      <h2>Twitter</h2>
+      <h2 class="section_title">Twitter</h2>
       <div class="twibox row">
         <div class="col-md-6 col-sm-6">
           <p><a href="https://twitter.com/bokuani1" target="_blank"><img src="http://snark.sub.jp/bokuani/img/twittterIcon.jpg" alt="ぼくアニツイッター"></a></p>
@@ -883,6 +847,8 @@
       </div>
     </section>
   </div>
+  <!-- footer -->
+  <?php include ('inc/footer.php'); ?>
 </body>
 
 </html>

@@ -1,0 +1,23 @@
+@import 'variable.scss';
+
+header {
+  margin-bottom: 20px;
+  background-color: $ba_g;
+  nav {
+    .nav_box {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      .nav_list{
+        margin: 0 20px;
+        letter-spacing: 1.5;
+        .nav_anchor{
+          color: $ba_w;
+          &:hover{
+            color: $ba_y;
+          }
+        }
+      }
+    }
+  }
+}

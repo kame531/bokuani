@@ -1,0 +1,33 @@
+@import 'variable.scss';
+
+footer {
+  margin-bottom: 20px;
+  background-color: #444;
+  padding-top: 20px;
+  nav {
+    background-color: $ba_b;
+    padding-top: 10px;
+    .nav_box {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+      .nav_list{
+        margin: 0 10px;
+        letter-spacing: 1.5;
+        font-size: 12px;
+        .nav_anchor{
+          color: $ba_w;
+          &:hover{
+            color: $ba_g;
+          }
+        }
+      }
+    }
+  }
+  .copyright{
+    text-align: center;
+    padding-bottom: 20px;
+    color: $ba_w;
+    background-color: $ba_b;
+  }
+}
