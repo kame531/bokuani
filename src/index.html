@@ -19,7 +19,9 @@
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="apple-touch-icon-precomposed" href="http://bokuani.club/img/webclip.png">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
   <script src="./js/hold.js" charset="utf-8"></script>
+
 </head>
 
 <body>
@@ -71,11 +73,6 @@
           <p class="about_title">持ち込みOK</p>
           <p class="about_text">お酒、ツマミ等の持ち込みOKです。カウンターでもドリンクの注文を受けつています。<br>*&nbsp;アルコール度数の高いお酒は持ち込み禁止です。<br>*&nbsp;ゴミの分別にご協力下さい。</p>
         </div>
-        <!-- <div class="col-sm-4 col-xs-12">
-                    <img src="http://snark.sub.jp/bokuani/img/mascot/cos.png" alt="コスプレ">
-                    <p class="about_title">コスプレ</p>
-                    <p class="about_text">女子更衣室(無料)とクローク（有料）を用意しています。コスプレをしながらパーティを楽しめます。わからないことがあればコスプレスタッフが案内します。</p>
-                  </div> -->
         <div class="about_inner">
           <img class="about_image" src="http://snark.sub.jp/bokuani/img/mascot/ohiru.png" alt="お昼開催">
           <p class="about_title">日曜お昼に開催</p>
@@ -85,17 +82,39 @@
     </section>
   </div>
 
-
   <!-- djvjstaff -->
+  <div class="container" id="performer">
+    <ul class="crew_box">
+    <?php foreach($data as $row): ?>
+      <li class="crew_list crew_list_<?php echo $row['job'];?>">
+        <img class="crew_image crew_image_<?php echo $row['job'];?>" src="./img/crew/crew_<?php echo $row['id'];?>.jpg" alt="<?php echo $row['name'];?>">
+        <!-- <p><?php echo $row['job'];?></p> -->
+        <!-- <p><?php echo $row['name'];?></p> -->
+      </li>
+    <?php endforeach; ?>
+    </ul>
+  </div>
+
+
+  <!--Call your modal-->
+      <a class="modal" href="#animatedModal">DEMO01</a>
+
 
   <div class="container">
     <?php foreach($data as $row): ?>
+    <div id="animatedModal">
+      <div class="close-animatedModal">
+          CLOSE MODAL
+      </div>
+      <div class="modal-content">
     <h4><?php echo $row['name'];?></h4>
     <p><?php echo $row['job'];?></p>
     <p>(<?php echo $row['credit'];?>)</p>
     <p><a href="https://twitter.com/<?php echo $row['twitter'];?>" target="_blank"><img src="./img/icon/twitter.png" alt="twitter @<?php echo $row['twitter'];?>"></a></p>
     <p><img src="./img/crew/crew_<?php echo $row['id'];?>.jpg" alt="<?php echo $row['name'];?>"></p>
     <p><?php echo $row['vio'];?></p>
+    </div>
+    </div>
     <?php endforeach; ?>
   </div>
 
@@ -630,31 +649,6 @@
         </div>
       </div>
 
-      <!-- <div class="modal fade" id="modal-12" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-  <div class="modal-dialog" role="document">
-
-  <div class="modal-content">
-  <div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-  <h4 class="modal-title modal_name ill_name">彩</h4>
-  <p class="credit"></p>
-  </div>
-
-  <div class="modal-body">
-  <div class="row">
-  <div class="col-md-6 col-sm-6">
-  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/aya.jpg" alt="彩">
-  </div>
-
-  <div class="col-md-6 col-sm-6">
-  <div class="sns_icon">
-  <a href="https://twitter.com/lilact_anmt" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-  </div>
-
-  <p class="vio">イラストを描いてます。</p>
-  </div>
-</div></div></div></div></div> -->
-
       <div class="modal fade" id="modal-13" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
         <div class="modal-dialog" role="document">
 
@@ -735,6 +729,7 @@
                   </div>
 
                   <p class="vio">初めまして！<br>酒に酔うより音に酔え♪<br>ってな音楽が血液なダメオタ女してますw<br>中の人は親父とメンヘラとお酒とエロゲとアニメの雑食で出来てます。<br>コス企画なり好きなものをバンバン盛り上げて行こうと思うので宜しくお願いします！</p>
+
                 </div>
               </div>
             </div>
@@ -849,6 +844,9 @@
   </div>
   <!-- footer -->
   <?php include ('inc/footer.php'); ?>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="./js/animatedModal.min.js"></script>
+  <script>$(".modal").animatedModal();</script>
 </body>
 
 </html>
