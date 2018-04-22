@@ -4,7 +4,7 @@ font-family: "MyFont";
 }
 
 /*-------------------reset-------------------*/
-html,body,h1,h2,h3,h4,p,a,ul,li,dl,dt,dd{
+html,body,h1,h2,h3,h4,p,a,ul,li,dl,dt,dd,button,form{
 	margin:0;
 	padding:0;
 	line-height:1.0;
@@ -47,6 +47,10 @@ section{
 .section_title{//h2
   text-align: center;
   margin-bottom: 40px;
+}
+
+/*-------------------mv-------------------*/
+.mv_box{
 }
 
 /*-------------------day&entrance-------------------*/
@@ -118,9 +122,63 @@ section{
     }
   }
 }
+/*-------------------performer-------------------*/
+.crew_modal{//モーダル
+  display: none;
+}
+.crew_list_modal{//リスト内アンカー
+  display: block;
+}
+.crew_list{
+  position: relative;
+}
 
+.crew_box{
+  .crew_list{
+  &:hover .crew_hover{
+    transform: translateY(-100%);
+    margin-top: 0;
+    opacity: 0.85;
+    height: 100%;
+    width: 100%;
+  }
+  .crew_hover{
+    text-align: center;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    color: $ba_w;
+    margin-top: -100%;
+
+    transition-duration: 0.5s;
+
+  &_DJ{
+    background: $dj_c;
+  }
+  &_VJ{
+    background: $vj_c;
+  }
+  &_STAFF{
+    background: $staff_c;
+  }
+  &_job{
+    font-size: 46px;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+  &_name{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  }
+  }
+}
 /*-------------------header-------------------*/
 @import 'header.scss';
 
 /*-------------------footer-------------------*/
 @import 'footer.scss';
+
+/*-------------------edit-------------------*/
+@import 'edit.scss';

@@ -6,7 +6,7 @@
   src: url(http://snark.sub.jp/bokuani/second/font/neko.woff) format("woff"); }
 
 /*-------------------reset-------------------*/
-html, body, h1, h2, h3, h4, p, a, ul, li, dl, dt, dd {
+html, body, h1, h2, h3, h4, p, a, ul, li, dl, dt, dd, button, form {
   margin: 0;
   padding: 0;
   line-height: 1.0;
@@ -48,6 +48,7 @@ section {
   text-align: center;
   margin-bottom: 40px; }
 
+/*-------------------mv-------------------*/
 /*-------------------day&entrance-------------------*/
 .day-ent_box {
   display: -webkit-box;
@@ -114,6 +115,50 @@ section {
       .crew_box .crew_list .crew_image_STAFF {
         border: 4px solid #333D4F; }
 
+/*-------------------performer-------------------*/
+.crew_modal {
+  display: none; }
+
+.crew_list_modal {
+  display: block; }
+
+.crew_list {
+  position: relative; }
+
+.crew_box .crew_list:hover .crew_hover {
+  -webkit-transform: translateY(-100%);
+     -moz-transform: translateY(-100%);
+          transform: translateY(-100%);
+  margin-top: 0;
+  opacity: 0.85;
+  height: 100%;
+  width: 100%; }
+
+.crew_box .crew_list .crew_hover {
+  text-align: center;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  color: #eee;
+  margin-top: -100%;
+  -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+          transition-duration: 0.5s; }
+  .crew_box .crew_list .crew_hover_DJ {
+    background: #EC5F9C; }
+  .crew_box .crew_list .crew_hover_VJ {
+    background: #75B790; }
+  .crew_box .crew_list .crew_hover_STAFF {
+    background: #333D4F; }
+  .crew_box .crew_list .crew_hover_job {
+    font-size: 46px;
+    font-weight: bold;
+    margin-top: 30px; }
+  .crew_box .crew_list .crew_hover_name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px; }
+
 /*-------------------header-------------------*/
 header {
   margin-bottom: 20px;
@@ -136,7 +181,6 @@ header {
 
 /*-------------------footer-------------------*/
 footer {
-  margin-bottom: 20px;
   background-color: #444;
   padding-top: 20px; }
   footer nav {
@@ -163,3 +207,157 @@ footer {
     padding-bottom: 20px;
     color: #eee;
     background-color: #333; }
+  footer .produced {
+    color: #eee;
+    cursor: none; }
+
+/*-------------------edit-------------------*/
+.login_body {
+  background: #06d06f; }
+
+.err_box {
+  width: 500px;
+  margin: 20px auto;
+  background: #eee; }
+  .err_box .err_text {
+    padding: 20px; }
+
+.choice_box {
+  margin-bottom: 40px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 20px; }
+  .choice_box .choice_btn {
+    font-size: 16px;
+    padding: 6px 10px;
+    margin: 5px;
+    -moz-border-radius: 4px;
+         border-radius: 4px;
+    background: #eee;
+    border: 2px solid #eee; }
+    .choice_box .choice_btn:hover {
+      border: 2px solid #333;
+      cursor: pointer; }
+    .choice_box .choice_btn.active {
+      background: #ffe600;
+      border: 2px solid #ffe600; }
+
+.edit_area {
+  min-height: 50vh; }
+
+.login_box {
+  width: 400px;
+  height: 400px;
+  margin: 10vh auto 25vh;
+  background: #eee;
+  padding: 30px;
+  -moz-border-radius: 50%;
+       border-radius: 50%;
+  position: relative; }
+  .login_box .login_title {
+    text-align: center;
+    margin-bottom: 30px; }
+  .login_box span {
+    width: 150px;
+    display: inline-block; }
+  .login_box .login_input {
+    width: 144px; }
+  .login_box .login_form {
+    width: 300px;
+    position: absolute;
+    top: 30%;
+    left: 17.5%;
+    font-size: 18px; }
+    .login_box .login_form .login_name {
+      margin-bottom: 10px; }
+    .login_box .login_form .login_pass {
+      margin-bottom: 20px; }
+    .login_box .login_form input[type=text]:focus, .login_box .login_form input[type=password]:focus {
+      border: 3px solid #555;
+      width: 150px;
+      -moz-box-sizing: border-box;
+           box-sizing: border-box; }
+    .login_box .login_form input[type=button], .login_box .login_form input[type=submit], .login_box .login_form input[type=reset] {
+      background-color: #333;
+      border: none;
+      color: #eee;
+      font-size: 18px;
+      padding: 8px 16px;
+      text-decoration: none;
+      width: 100%;
+      cursor: pointer;
+      border: 2px solid #333; }
+      .login_box .login_form input[type=button]:hover, .login_box .login_form input[type=submit]:hover, .login_box .login_form input[type=reset]:hover {
+        background-color: #eee;
+        color: #333;
+        border: 2px solid #333; }
+
+.edit_box {
+  display: none;
+  padding: 30px 30px 20px 30px;
+  border: 2px solid #333;
+  margin-bottom: 40px; }
+  .edit_box.active {
+    display: block; }
+  .edit_box input {
+    width: 720px;
+    font-size: 14px;
+    padding: 4px; }
+  .edit_box textarea {
+    width: 720px;
+    font-size: 14px;
+    padding: 4px; }
+  .edit_box .edit_inner {
+    margin-bottom: 10px; }
+  .edit_box_name {
+    color: #eee;
+    margin-bottom: 20px;
+    font-size: 24px; }
+  .edit_box label {
+    float: left;
+    width: 150px;
+    font-size: 16px;
+    background: #333;
+    color: #eee;
+    padding: 6px; }
+
+.set_text {
+  margin-bottom: 40px; }
+  .set_text h2 {
+    margin-bottom: 20px; }
+
+.set_box {
+  min-height: 40vh; }
+  .set_box .set_table {
+    border: 1px solid #333;
+    background-color: #eee;
+    padding: 40px;
+    width: 100%; }
+    .set_box .set_table tbody tr th {
+      padding: 10px; }
+  .set_box .set_btn {
+    margin: 60px auto;
+    overflow: hidden;
+    width: 400px; }
+  .set_box .set_btn_btn {
+    padding: 10px;
+    border: 1px solid #eee;
+    -moz-border-radius: 4px;
+         border-radius: 4px;
+    font-size: 18px;
+    margin: 0;
+    width: 150px;
+    height: 40px; }
+    .set_box .set_btn_btn:hover {
+      background: #333;
+      color: #eee; }
+  .set_box .set_btn_back {
+    background: #d98200;
+    color: #eee;
+    float: left;
+    text-align: center;
+    display: block; }
+  .set_box .set_btn_ok {
+    background: #197dbd;
+    color: #eee;
+    float: right;
+    cursor: pointer; }

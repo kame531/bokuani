@@ -1,0 +1,188 @@
+@import 'variable.scss';
+.login_body{
+  background: $ba_g;
+}
+.err_box{
+  width: 500px;
+  margin: 20px auto;
+  background: $ba_w;
+  .err_text{
+    padding: 20px;
+  }
+}
+
+.choice_box{
+  margin-bottom: 40px;
+  border-bottom: 2px solid $ba_b;
+  padding-bottom: 20px;
+  .choice_btn{
+    font-size: 16px;
+    padding: 6px 10px;
+    margin: 5px;
+    border-radius: 4px;
+    background: $ba_w;
+    border: 2px solid $ba_w;
+    &:hover{
+      border: 2px solid $ba_b;
+      cursor: pointer;
+    }
+    &.active{
+      background: $ba_y;
+      border: 2px solid $ba_y;
+    }
+  }
+}
+
+.edit_area{
+  min-height: 50vh;
+}
+.login_box{
+  width:400px;
+  height: 400px;
+  margin: 10vh auto 25vh;
+  background: $ba_w;
+  padding: 30px;
+  border-radius:50%;
+  position: relative;
+  .login_title{
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  span{
+    width: 150px;
+    display: inline-block;
+  }
+  .login_input{
+    width:144px;
+  }
+  .login_form{
+    width:300px;
+    position: absolute;
+    top: 30%;
+    left: 17.5%;
+    font-size: 18px;
+    .login_name{
+      margin-bottom: 10px;
+    }
+    .login_pass{
+      margin-bottom: 20px;
+    }
+    input[type=text]:focus,input[type=password]:focus {
+    border: 3px solid #555;
+    width: 150px;
+    box-sizing: border-box;
+  }
+  input[type=button], input[type=submit], input[type=reset] {
+    background-color: $ba_b;
+    border: none;
+    color: $ba_w;
+    font-size: 18px;
+    padding: 8px 16px;
+    text-decoration: none;
+    width: 100%;
+    cursor: pointer;
+    border: 2px solid $ba_b;
+    &:hover{
+      background-color: $ba_w;
+      color: $ba_b;
+      border: 2px solid $ba_b;
+    }
+  }
+  }
+}
+
+
+
+.edit_box{
+  display: none;
+  padding: 30px 30px 20px 30px;
+  border: 2px solid $ba_b;
+  margin-bottom: 40px;
+//   input[type=text]:focus,input[type=password]:focus {
+//   border: 3px solid #555;
+//   width: 150px;
+//   box-sizing: border-box;
+// }
+&.active{//表示
+  display: block;
+}
+input{
+  width: 720px;
+  font-size: 14px;
+  padding: 4px;
+}
+textarea{
+  width: 720px;
+  font-size: 14px;
+  padding: 4px;
+}
+  .edit_inner{
+    margin-bottom: 10px;
+  }
+  &_name{
+    color: $ba_w;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  label{
+    float: left;
+    width: 150px;
+    font-size: 16px;
+    background: $ba_b;
+    color: $ba_w;
+    padding: 6px ;
+  }
+}
+
+//set.php
+.set_text{
+  margin-bottom: 40px;
+  h2{
+    margin-bottom: 20px;
+  }
+}
+.set_box{
+  min-height: 40vh;
+  .set_table {
+    border: 1px solid $ba_b;
+    background-color: $ba_w;
+    padding: 40px;
+    width:100%;
+    tbody tr{
+      th{
+      padding:10px;
+    }
+  }
+  }
+  .set_btn{
+    margin: 60px auto;
+    overflow: hidden;
+    width:400px;
+  }
+  .set_btn_btn{
+    padding: 10px;
+    border: 1px solid $ba_w;
+    border-radius: 4px;
+    font-size: 18px;
+    margin: 0;
+    width:150px;
+    height: 40px;
+    &:hover{
+      background: $ba_b;
+      color: $ba_w;
+    }
+  }
+  .set_btn_back{
+    background: #d98200;
+    color: $ba_w;
+    float: left;
+    text-align: center;
+    display: block;
+  }
+  .set_btn_ok{
+    background: #197dbd;
+    color: $ba_w;
+    float: right;
+    cursor: pointer;
+  }
+}

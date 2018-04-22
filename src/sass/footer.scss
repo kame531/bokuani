@@ -1,7 +1,6 @@
 @import 'variable.scss';
 
 footer {
-  margin-bottom: 20px;
   background-color: #444;
   padding-top: 20px;
   nav {
@@ -29,5 +28,9 @@ footer {
     padding-bottom: 20px;
     color: $ba_w;
     background-color: $ba_b;
+  }
+  .produced{
+    color: $ba_w;
+    cursor: none;
   }
 }

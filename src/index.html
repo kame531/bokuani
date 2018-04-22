@@ -19,14 +19,20 @@
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="apple-touch-icon-precomposed" href="http://bokuani.club/img/webclip.png">
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+  <link rel="stylesheet" href="./css/modaal.min.css">
   <script src="./js/hold.js" charset="utf-8"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="./js/modaal.min.js"></script>
 
 </head>
 
 <body>
   <!-- header -->
   <?php include ('./inc/header.php'); ?>
+  <div class="mv_box">
+    <p>日曜お昼開催の原曲中心アニソンクラブイベント。アットホームな雰囲気が特徴です。<br>池袋会場はバナナボンゴ！ぼくたちと一緒に楽しみましょう！</p>
+    <img src="http://snark.sub.jp/bokuani/img/mascot/bokuani_chara_02.png" alt="ぼくアニキャラクター" class="chara">
+  </div>
 
   <!-- day/entrance -->
   <div class="container" id="day-ent">
@@ -83,40 +89,6 @@
   </div>
 
   <!-- djvjstaff -->
-  <div class="container" id="performer">
-    <ul class="crew_box">
-    <?php foreach($data as $row): ?>
-      <li class="crew_list crew_list_<?php echo $row['job'];?>">
-        <img class="crew_image crew_image_<?php echo $row['job'];?>" src="./img/crew/crew_<?php echo $row['id'];?>.jpg" alt="<?php echo $row['name'];?>">
-        <!-- <p><?php echo $row['job'];?></p> -->
-        <!-- <p><?php echo $row['name'];?></p> -->
-      </li>
-    <?php endforeach; ?>
-    </ul>
-  </div>
-
-
-  <!--Call your modal-->
-      <a class="modal" href="#animatedModal">DEMO01</a>
-
-
-  <div class="container">
-    <?php foreach($data as $row): ?>
-    <div id="animatedModal">
-      <div class="close-animatedModal">
-          CLOSE MODAL
-      </div>
-      <div class="modal-content">
-    <h4><?php echo $row['name'];?></h4>
-    <p><?php echo $row['job'];?></p>
-    <p>(<?php echo $row['credit'];?>)</p>
-    <p><a href="https://twitter.com/<?php echo $row['twitter'];?>" target="_blank"><img src="./img/icon/twitter.png" alt="twitter @<?php echo $row['twitter'];?>"></a></p>
-    <p><img src="./img/crew/crew_<?php echo $row['id'];?>.jpg" alt="<?php echo $row['name'];?>"></p>
-    <p><?php echo $row['vio'];?></p>
-    </div>
-    </div>
-    <?php endforeach; ?>
-  </div>
 
 
   <div class="container">
@@ -216,538 +188,44 @@
     </section>
   </div>
 
-  <div class="container">
+  <div class="container" id="performer">
+    <h2 class="section_title">DJ/VJ/STAFF</h2>
 
     <section class="crew">
-      <div class="row row-eq-heigh">
-        <h2 class="section_title">CREW</h2>
-        <div class="role_plate">
-          <div class="dj_plate col-md-4 col-sm-4 col-xs-4"><i class="fa fa-headphones" aria-hidden="true"></i></div>
-          <div class="vj_plate col-md-4 col-sm-4 col-xs-4"><i class="fa fa-video-camera" aria-hidden="true"></i></div>
-          <div class="staff_plate col-md-4 col-sm-4 col-xs-4"><i class="fa fa-users" aria-hidden="true"></i></div>
+    <h3 class="section_title">CREW</h3>
+    <ul class="crew_box">
+    <?php foreach($data as $row): ?>
+      <li class="crew_list crew_list_<?php echo $row['job'];?>">
+        <a href="#modal_<?php echo $row['id'];?>" class="modal crew_list_modal">
+        <img class="crew_image crew_image_<?php echo $row['job'];?>" src="./img/crew/crew_<?php echo $row['id'];?>.jpg" alt="<?php echo $row['name'];?>">
+        <div class="crew_hover crew_hover_<?php echo $row['job'];?>">
+        <p class="crew_hover_job"><?php echo $row['job'];?></p>
+        <p class="crew_hover_name"><?php echo $row['name'];?></p>
         </div>
-
-        <div class="crew_image_box">
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-1" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name dj">キヤ</p><img src="http://snark.sub.jp/bokuani/img/crew/kiya.jpg" alt="キヤ" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-2" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name dj">はいすこあぼ〜い</p><img src="http://snark.sub.jp/bokuani/img/crew/haibo.jpg" alt="はいすこあぼ〜い" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-4" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name dj">ハンバーグ</p><img src="http://snark.sub.jp/bokuani/img/crew/humbarg.jpg" alt="ハンバーグ" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-5" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name dj">ココチ「ん」</p><img src="http://snark.sub.jp/bokuani/img/crew/kokochi.jpg" alt="ココチ「ん」" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-13" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name dj">かのよ</p><img src="http://snark.sub.jp/bokuani/img/crew/kanoyo.jpg" alt="かのよ" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-14" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name dj">カリメロ</p><img src="http://snark.sub.jp/bokuani/img/crew/karimero.jpg" alt="カリメロ" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-11" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name dj">すなぁく</p><img src="http://snark.sub.jp/bokuani/img/crew/snark.jpg" alt="すなぁく" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-6" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name vj">すまいり</p><img src="http://snark.sub.jp/bokuani/img/crew/smily.jpg" alt="すまいり" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-8" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name staff">美月</p><img src="http://snark.sub.jp/bokuani/img/crew/mitsuki.jpg" alt="美月" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-10" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name staff">むしろ</p><img src="http://snark.sub.jp/bokuani/img/crew/mushiro.jpg" alt="むしろ" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col">
-            <a href="#" data-toggle="modal" data-target="#modal-15" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name staff">amone</p><img src="http://snark.sub.jp/bokuani/img/crew/amone.jpg" alt="amone" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col off">
-            <a href="#" data-toggle="modal" data-target="#modal-3" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name dj">はるいぬ(お休み)</p><img src="http://snark.sub.jp/bokuani/img/crew/haruinu.jpg" alt="はるいぬ" class="crew_image"></div>
-            </a>
-          </div>
-
-          <div class="col-md-3 col-sm-4 col-xs-6 crew_col off">
-            <a href="#" data-toggle="modal" data-target="#modal-7" class="crew_modal">
-              <div class="crew_list">
-                <p class="crew_name vj">バファリン(お休み)</p><img src="http://snark.sub.jp/bokuani/img/crew/bafarin.jpg" alt="バファリン" class="crew_image"></div>
-            </a>
-          </div>
-        </div>
-
-      </div>
-      <!-- Modal -->
-      <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name dj_name">キヤ</h4>
-              <p class="credit">(ニジロックフェスティバル)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/kiya.jpg" alt="キヤ">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/kiya_piyo" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="https://www.mixcloud.com/kiyapiyo" target="_blank"><i class="fa fa-mixcloud" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">1994年人間としてのキャリアをスタート。岐阜と東京を軽率に行き来しフロアにカワイイと感情を投下し続けている。<br>近頃では秋葉原mograで行われているぼくアニの新レギュラーとなり、ますます目を離さないでください。お願いします。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name dj_name">はいすこぼ〜い</h4>
-              <p class="credit">(Ani Alpha/茨城アニクラ道)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img src="http://snark.sub.jp/bokuani/img/crew/haibo.jpg" alt="はいすこあぼ〜い" class="crew_image">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/hiscoreboy1022" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="https://soundcloud.com/hiscoreboy1022" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">アニクラはいかがでしょう<br>どんな時も決して消えることの無い<br>無窮のアニソン、高まるアニソンが<br>みなさまをお待ちしています<br>アニクラはいかがでしょう？</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-3" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name dj_name">はるいぬ</h4>
-              <p class="credit">(銚子アニソンフェス/僕たちのRomance)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/haruinu.jpg" alt="はるいぬ">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/inukoharu" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="https://www.mixcloud.com/haruinu/" target="_blank"><i class="fa fa-mixcloud" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">2015年6月DJデビュー。ぼくアニではアイカツ、プリキュア、プリリズを中心とする女児アニメ担当。<br>一応女性向けも担当するネオロマンサー兼ロデオガール。BLゲームに目がない事から付いたアダ名はホモワイフ。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-3" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name dj_name">はるいぬ</h4>
-              <p class="credit">(銚子アニソンフェス/僕たちのRomance)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/haruinu.jpg" alt="はるいぬ">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/inukoharu" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="https://www.mixcloud.com/haruinu/" target="_blank"><i class="fa fa-mixcloud" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">2015年6月DJデビュー。ぼくアニではアイカツ、プリキュア、プリリズを中心とする女児アニメ担当。<br>一応女性向けも担当するネオロマンサー兼ロデオガール。BLゲームに目がない事から付いたアダ名はホモワイフ。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-4" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name dj_name">ハンバーグ</h4>
-              <p class="credit">(Ani Alpha)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/humbarg.jpg" alt="ハンバーグ">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/EmptyOf" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="https://www.mixcloud.com/DJHanbagu/" target="_blank"><i class="fa fa-mixcloud" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">奈々さんとシンフォギアと剣と魔法とテンプレハーレムアニメが大好きなＤＪです！！<br> 最近は思い...出した！様に2000年代のちょい懐かしい曲を流しています！
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-5" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name dj_name">ココチ「ん」</h4>
-              <p class="credit">(歌踊好/M@STER GROOVE!!)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/kokochi.jpg" alt="ここちん">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/cocopepe_32" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="https://soundcloud.com/cocochin_32" target="_blank"><i class="fa fa-soundcloud" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">最高のgroove作れる様に頑張ります！<br>アイマスが好き沼倉愛美が好き雨宮天が好きイケメンのでるアニメが好き！！<br>静岡でアニソンDJデビュー。アニメ不毛地帯の静岡でも、アニメが好きなのは万国共通！</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-6" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name vj_name">すまいり</h4>
-              <p class="credit">(BARなごみ/ちゃいりふ)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/smily.jpg" alt="すまいり">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/smiry3333" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href="https://www.mixcloud.com/smiry/" target="_blank"><i class="fa fa-mixcloud" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">九州出身、関東在住、心は竹原。<br>2014年末のVJデビュー以降、温泉幼精、少年メイドなど複数のポジションで経験を積む。<br>活動は多岐にわたり新人声優 烏丸いり千歳としての活躍も記憶に新しい。好きなアニメはたまゆら。好きなたまゆらは三谷かなえさん。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-7" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name vj_name">バファリン(お休み)</h4>
-              <p class="credit">(First Step→/適度に楽しむ遊び/オタリンピック/サオアニ/あにじゅう。/汚茶会/俺パ)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/bafarin.jpg" alt="バファリン">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/tky_zoo" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">2015年11月末デビュー<br>アマガミと出会いオタクとなりWUGやあおかなにハマる。<br>最近はちょくちょくDJもやってます！</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-8" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name staff_name">美月</h4>
-              <p class="credit">(オタリンピック)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/mitsuki.jpg" alt="美月">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/_mzk0x0_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">中川翔子、水樹奈々が出るライブを中心にいろんなイベントに出現する現場系オタク。<br>歌ったり踊ったりイベント主催もしてます。<br>みなさんがより楽しめるように頑張ります！よろしくお願いします♪</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-10" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name cam_name">むしろ</h4>
-              <p class="credit">昼寝の会</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/mushiro.jpg" alt="むしろ">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/musiro_s" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">カメラマンとして参加します！よろしくお願いします。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-11" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name dj_name">すなぁく</h4>
-              <p class="credit"></p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/snark.jpg" alt="すなぁく">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/sunax9" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">オーガナイザー・デザイン・雑用を行う何でも屋。主にゆるふわな日常系4コマ原作のアニメを応援している。<br>みんなに【ぼくアニ】を好きになってもらえるように盛り上げていきます！<br>久しぶりにDJします。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-13" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name dj_name">かのよ</h4>
-              <p class="credit">(秋葉東京/えーらうんじ)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/kanoyo.jpg" alt="かのよ">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/kano4r" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">2017年2月からDJ活動を始めました！<br>その後、2017年夏の宴ゴールドフロアに出演を果たす、自称ノリと勢いのある強運の女。<br>可愛い女の子がでてくる作品が好きで、コスプレもする人です。『女は度胸と愛嬌』をモットーに、皆さんに楽しんでいただけるように頑張ります！<br>好きな食べ物：マカロン、ラーメン、明太子</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-14" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name dj_name">カリメロ</h4>
-              <p class="credit">(Ani alpha/茨城アニクラ道)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/karimero.jpg" alt="カリメロ">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/karimerohotepu" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">茨城生まれ茨城育ち。仕事は漁師。大洗の海は庭です！<br>主に百合と日常アニメを好む。心がぴょんぴょんするDJ出来たらいいなと思っています。</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal fade" id="modal-15" tabindex="-1" role="dialog" aria-labelledby="modal-1Label" style="display: none;">
-        <div class="modal-dialog" role="document">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-window-close" aria-hidden="true"></i></span></button>
-              <h4 class="modal-title modal_name staff_name">amone</h4>
-              <p class="credit">(sukimono /MusicPandora)</p>
-            </div>
-
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6 col-sm-6">
-                  <img class="crew_image" src="http://snark.sub.jp/bokuani/img/crew/amone.jpg" alt="カリメロ">
-                </div>
-
-                <div class="col-md-6 col-sm-6">
-                  <div class="sns_icon">
-                    <a href="https://twitter.com/amone_music" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                  </div>
-
-                  <p class="vio">初めまして！<br>酒に酔うより音に酔え♪<br>ってな音楽が血液なダメオタ女してますw<br>中の人は親父とメンヘラとお酒とエロゲとアニメの雑食で出来てます。<br>コス企画なり好きなものをバンバン盛り上げて行こうと思うので宜しくお願いします！</p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--end modal -->
-
-    </section>
-    <!--end crew -->
-
+      </a>
+      </li>
+    <?php endforeach; ?>
+    </ul>
+  </section>
   </div>
-  <!-- /container -------->
+
+
+      <!-- モーダルウィンドウ内 -->
+      <?php foreach($data as $row): ?>
+      <div class="crew_modal" id="modal_<?php echo $row['id'];?>">
+      <h4><?php echo $row['name'];?></h4>
+      <p><?php echo $row['job'];?></p>
+      <p>(<?php echo $row['credit'];?>)</p>
+      <p><a href="https://twitter.com/<?php echo $row['twitter'];?>" target="_blank"><img src="./img/icon/twitter.png" alt="twitter @<?php echo $row['twitter'];?>"></a></p>
+      <p><img src="./img/crew/crew_<?php echo $row['id'];?>.jpg" alt="<?php echo $row['name'];?>"></p>
+      <p><?php echo nl2br($row['vio'],false);?></p>
+      </div>
+      <?php endforeach; ?>
+
+
 
   <div class="container">
     <section class="ba_02">
-      <div class="none" style="text-align: center; margin: 20px 0;"><img style="width:600px;" src="http://snark.sub.jp/bokuani/img/tt/bk_tt_002.jpg" alt="timetable">
-      </div>
       <h2 class="section_title">TIME TABLE</h2>
       <!-- diplay:noneはclass:none -->
       <p class="" style="font-size:20px;padding:20px 0;">Comingsoon...</p>
@@ -844,9 +322,9 @@
   </div>
   <!-- footer -->
   <?php include ('inc/footer.php'); ?>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="./js/animatedModal.min.js"></script>
-  <script>$(".modal").animatedModal();</script>
+  <script>
+    $('.modal').modaal();
+  </script>
 </body>
 
 </html>
